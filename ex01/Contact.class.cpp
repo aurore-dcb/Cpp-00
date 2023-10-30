@@ -6,7 +6,7 @@
 /*   By: aducobu <aducobu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:53:34 by aducobu           #+#    #+#             */
-/*   Updated: 2023/10/27 11:40:27 by aducobu          ###   ########.fr       */
+/*   Updated: 2023/10/30 12:37:15 by aducobu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,6 @@ Contact::Contact(void) {
     
     std::cout << "Constructor Contact called" << std::endl;
     this->oldest = false;
-    // this->first_name = NULL;
-    // this->last_name = NULL;
-    // this->nickname = NULL;
     return;
 }
 
