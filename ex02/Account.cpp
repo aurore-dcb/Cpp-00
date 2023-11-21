@@ -6,7 +6,7 @@
 /*   By: aducobu <aducobu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 12:39:15 by aducobu           #+#    #+#             */
-/*   Updated: 2023/10/30 15:47:22 by aducobu          ###   ########.fr       */
+/*   Updated: 2023/11/21 11:02:26 by aducobu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,16 @@ void	Account::displayStatus( void ) const {
     std::cout << "amount:" << _amount << ";";
     std::cout << "deposits:" << _nbDeposits << ";";
     std::cout << "withdrawals:" << _nbWithdrawals << ";" << std::endl;
+}
+
+void	Account::makeDeposit( int deposit )
+{
+    Account::_displayTimestamp();
+    std::cout << "index:" << _accountIndex << ";";
+    std::cout << "p_amount:" << _amount << ";";
+    std::cout << "deposit:" << deposit << ";";
+    _totalNbDeposits++;
+    _amount += deposit;
+    std::cout << "amount:" << _amount << ";";
+    std::cout << "nb_deposit:" << _totalNbDeposits << ";" << std::endl;
 }

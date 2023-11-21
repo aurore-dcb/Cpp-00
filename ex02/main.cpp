@@ -6,7 +6,7 @@
 /*   By: aducobu <aducobu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 14:15:21 by aducobu           #+#    #+#             */
-/*   Updated: 2023/10/30 15:31:05 by aducobu          ###   ########.fr       */
+/*   Updated: 2023/11/21 11:00:48 by aducobu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,15 @@ int	main(void)
 	ints_t::iterator	wit_end		= withdrawals.end();
 
 	Account::displayAccountsInfos();
+	std::cout << std::endl;
     std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) );
-    
+	std::cout << std::endl;
+	for ( acc_int_t it( acc_begin, dep_begin );
+		  it.first != acc_end && it.second != dep_end;
+		  ++(it.first), ++(it.second) ) {
+
+		(*(it.first)).makeDeposit( *(it.second) );
+	}
+    std::cout << std::endl;
 	return (0);
 }
