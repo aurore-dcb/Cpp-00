@@ -6,7 +6,7 @@
 /*   By: aducobu <aducobu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:33:40 by aducobu           #+#    #+#             */
-/*   Updated: 2023/10/30 12:35:12 by aducobu          ###   ########.fr       */
+/*   Updated: 2023/11/22 14:57:36 by aducobu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ int main() {
         std::cout << std::endl << "Please enter one of these commands : ADD, SEARCH or EXIT" << std::endl;
         std::getline(std::cin, input);
         if (input.compare("ADD") == 0) {
-            phonebook.ft_add();
+            phonebook.add();
         }
         else if (input.compare("SEARCH") == 0) {
-            phonebook.ft_search();
+            phonebook.search();
         }
         else if (input.compare("ADD") && input.compare("SEARCH") && input.compare("EXIT")) {
             std::cout << input << " is a bad input. Please try again." << std::endl;

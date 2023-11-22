@@ -6,7 +6,7 @@
 /*   By: aducobu <aducobu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:35:29 by aducobu           #+#    #+#             */
-/*   Updated: 2023/10/27 14:24:24 by aducobu          ###   ########.fr       */
+/*   Updated: 2023/11/22 15:44:01 by aducobu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,14 @@ class PhoneBook {
       PhoneBook(void);
       ~PhoneBook(void);
     
-      void ft_add();
-      void ft_search();
+      void add();
+      void search();
       
     private :
     
       Contact tab[8];
+      void FillContact(Contact tab[], int i);
+      void DisplayContact(std::string index, Contact tab[]);
     
 };
 

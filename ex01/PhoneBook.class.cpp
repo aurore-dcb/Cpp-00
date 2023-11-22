@@ -6,7 +6,7 @@
 /*   By: aducobu <aducobu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 09:48:44 by aducobu           #+#    #+#             */
-/*   Updated: 2023/10/30 12:37:03 by aducobu          ###   ########.fr       */
+/*   Updated: 2023/11/22 15:14:16 by aducobu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,25 @@ PhoneBook::~PhoneBook(void) {
     return;
 }
 
-void PhoneBook::ft_add() {
+void PhoneBook::FillContact(Contact tab[], int i) {
+    
+    do {
+        std::cout << "/!\\ Do not let a field empty : " << std::endl;
+        std::cout << "First name : ";
+        std::getline(std::cin, tab[i].first_name);
+        std::cout << "Last name : ";
+        std::getline(std::cin, tab[i].last_name);
+        std::cout << "Nickname : ";
+        std::getline(std::cin, tab[i].nickname);
+        std::cout << "Phone number : ";
+        std::getline(std::cin, tab[i].phone_number);
+        std::cout << "Darkest secret : ";
+        std::getline(std::cin, tab[i].darkest_secret);
+    }
+    while (tab[i].first_name.empty() || tab[i].last_name.empty() || tab[i].nickname.empty() || tab[i].phone_number.empty() || tab[i].darkest_secret.empty());
+}
+
+void PhoneBook::add() {
     
     int i = 0;
     std::string input;
@@ -48,23 +66,10 @@ void PhoneBook::ft_add() {
     }
     else if (i == 0)
         this->tab[i].oldest = true;
-    do {
-        std::cout << "/!\\ Do not let a field empty : " << std::endl;
-        std::cout << "First name : ";
-        std::getline(std::cin, this->tab[i].first_name);
-        std::cout << "Last name : ";
-        std::getline(std::cin, this->tab[i].last_name);
-        std::cout << "Nickname : ";
-        std::getline(std::cin, this->tab[i].nickname);
-        std::cout << "Phone number : ";
-        std::getline(std::cin, this->tab[i].phone_number);
-        std::cout << "Darkest secret : ";
-        std::getline(std::cin, this->tab[i].darkest_secret);
-    }
-    while (this->tab[i].first_name.empty() || this->tab[i].last_name.empty() || this->tab[i].nickname.empty() || this->tab[i].phone_number.empty() || this->tab[i].darkest_secret.empty());
+    this->FillContact(this->tab, i);
 }
 
-void PhoneBook::ft_search(void) {
+void PhoneBook::search(void) {
     
     std::string index;
     
@@ -91,11 +96,18 @@ void PhoneBook::ft_search(void) {
     while ((index.length() != 1 || index[0] > '7' || index[0] < '0') || this->tab[index[0] - '0'].first_name.empty()) {
         
         if (index.length() == 1 && this->tab[index[0] - '0'].first_name.empty() && !(index[0] > '7' || index[0] < '0'))
-            std::cout << "You an empty index. Please try again" << std::endl;
+            std::cout << "You entered an empty index. Please try again" << std::endl;
         else
             std::cout << "You entered a bad index. Please try again" << std::endl;
         std::getline(std::cin, index);
     }
+    this->DisplayContact(index, this->tab);
+}
+
+
+
+void PhoneBook::DisplayContact(std::string index, Contact tab[]) {
+
     std::cout << "---- Contact n*" << index[0] << " ----" << std::endl;
     std::cout << "First name : " << this->tab[index[0] - '0'].first_name << std::endl;
     std::cout << "Last name : " << this->tab[index[0] - '0'].last_name << std::endl;

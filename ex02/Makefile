@@ -6,7 +6,7 @@
 #    By: aducobu <aducobu@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/30 12:38:25 by aducobu           #+#    #+#              #
-#    Updated: 2023/11/22 13:58:30 by aducobu          ###   ########.fr        #
+#    Updated: 2023/11/22 15:42:19 by aducobu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ CC		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98
 RM		= rm -rf
 
-$(NAME):	$(OBJ)
+$(NAME):	$(OBJ) *.hpp
 			$(CC) $(FLAGS) -o $(NAME) $(OBJ)
 
 all:		$(NAME)
