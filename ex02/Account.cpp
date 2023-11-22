@@ -6,7 +6,7 @@
 /*   By: aducobu <aducobu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 12:39:15 by aducobu           #+#    #+#             */
-/*   Updated: 2023/11/22 13:42:33 by aducobu          ###   ########.fr       */
+/*   Updated: 2023/11/22 15:34:23 by aducobu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ bool	Account::makeWithdrawal( int withdrawal ) {
     if (this->_amount - withdrawal < 0)
     {
         std::cout << "withdrawal:" << "refused" << std::endl;
-        return (0);
+        return (false);
     }
     std::cout << "withdrawal:" << withdrawal << ";";
     this->_amount -= withdrawal;
@@ -131,5 +131,5 @@ bool	Account::makeWithdrawal( int withdrawal ) {
     Account::_totalNbWithdrawals++;
     Account::_totalAmount -= withdrawal;
     std::cout << "nb_withdrawals:" << this->_nbWithdrawals << std::endl;
-    return(1);
+    return(true);
 }

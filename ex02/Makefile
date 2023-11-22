@@ -6,7 +6,7 @@
 #    By: aducobu <aducobu@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/30 12:38:25 by aducobu           #+#    #+#              #
-#    Updated: 2023/11/22 13:40:51 by aducobu          ###   ########.fr        #
+#    Updated: 2023/11/22 13:58:30 by aducobu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,4 +31,5 @@ fclean:		clean
 			$(RM) $(NAME)
 
 re:			fclean all
-		
+
+.PHONY: all clean fclean re
