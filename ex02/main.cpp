@@ -6,7 +6,7 @@
 /*   By: aducobu <aducobu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 14:15:21 by aducobu           #+#    #+#             */
-/*   Updated: 2023/11/21 11:00:48 by aducobu          ###   ########.fr       */
+/*   Updated: 2023/11/21 14:36:50 by aducobu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int	main(void)
 
 	int	const				amounts[]	= { 42, 54, 957, 432, 1234, 0, 754, 16576 };
 	size_t const			amounts_size( sizeof(amounts) / sizeof(int) );
-    std::cout << "amount_size = " << amounts_size << std::endl;
 	accounts_t				accounts( amounts, amounts + amounts_size );
 	accounts_t::iterator	acc_begin	= accounts.begin();
 	accounts_t::iterator	acc_end		= accounts.end();
@@ -42,6 +41,7 @@ int	main(void)
 	ints_t::iterator	wit_begin	= withdrawals.begin();
 	ints_t::iterator	wit_end		= withdrawals.end();
 
+	std::cout << std::endl;
 	Account::displayAccountsInfos();
 	std::cout << std::endl;
     std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) );
@@ -53,5 +53,20 @@ int	main(void)
 		(*(it.first)).makeDeposit( *(it.second) );
 	}
     std::cout << std::endl;
+	Account::displayAccountsInfos();
+	std::cout << std::endl;
+	std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) );
+	std::cout << std::endl;
+	for ( acc_int_t it( acc_begin, wit_begin );
+		  it.first != acc_end && it.second != wit_end;
+		  ++(it.first), ++(it.second) ) {
+
+		(*(it.first)).makeWithdrawal( *(it.second) );
+	}
+	std::cout << std::endl;
+	Account::displayAccountsInfos();
+	std::cout << std::endl;
+	std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) );
+	std::cout << std::endl;
 	return (0);
 }

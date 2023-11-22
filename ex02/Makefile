@@ -6,13 +6,13 @@
 #    By: aducobu <aducobu@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/30 12:38:25 by aducobu           #+#    #+#              #
-#    Updated: 2023/10/30 14:15:45 by aducobu          ###   ########.fr        #
+#    Updated: 2023/11/22 13:40:51 by aducobu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= TheJobOfYourDream
 
-SRC 	= Account.cpp main.cpp #tests.cpp
+SRC 	= Account.cpp tests.cpp
 OBJ 	= $(SRC:.cpp=.o)
 
 CC		= c++
